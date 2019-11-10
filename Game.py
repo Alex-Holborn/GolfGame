@@ -3,14 +3,14 @@ import CourseCreator
 class Game:
 
     def __init__(self):
+        self.courses_played = []
+        self.current_course = ""
         self.number_of_players = self.get_number_of_players()
         if self.number_of_players == 1:
             self.is_single_player = True
         else:
             self.is_single_player = False
         self.player_names = self.get_player_names()
-        print(self.number_of_players)
-        print(self.player_names)
         self.create_menu()
 
     def create_menu(self):
@@ -24,7 +24,31 @@ class Game:
         self.menu_choice(choice.lower())
 
     def menu_choice(self, choice):
-        print(choice)
+        if choice == "p":
+            self.play()
+        elif choice == "i":
+            self.print_instructions()
+        elif choice == "q":
+            print("Thanks for playing!")
+            exit()
+
+    def play(self):
+        options = ["f", "h"]
+        option = input("Play a (F)ull round or a (H)alf round?")
+        while option.lower() not in options:
+            option = input("Make a valid selection: (F)ull or (H)alf")
+        if option.lower() == "f":
+            self.current_course = self.create_course(True)
+        else:
+            self.current_course = self.create_course(False)
+
+    def create_course(self, is_full_round):
+        return CourseCreator.CourseCreator(is_full_round).course
+
+    def print_instructions(self):
+        print("Add instructions Martin")
+        print("------------------------")
+        self.create_menu()
 
     def get_player_names(self):
         if self.is_single_player:
@@ -43,5 +67,7 @@ class Game:
                 print("Please enter a valid number")
         return x
 
+    def start_round(self):
+        pass
 
 Game()
