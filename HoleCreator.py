@@ -3,8 +3,8 @@ import random
 
 class HoleCreator:
 
-    def __init__(self, number, par):
-        self.hole = Hole.Hole()
+    def __init__(self, course, number, par):
+        self.hole = Hole.Hole(course)
         self.hole.set_number(number)
         self.hole.set_par(par)
         self.hole.set_distance(self.create_distance(par))
