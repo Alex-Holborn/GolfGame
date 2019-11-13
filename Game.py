@@ -4,7 +4,7 @@ class Game:
 
     def __init__(self):
         self.courses_played = []
-        self.current_course = ""
+        self.current_course = None
         self.number_of_players = self.get_number_of_players()
         if self.number_of_players == 1:
             self.is_single_player = True
@@ -41,6 +41,7 @@ class Game:
             self.current_course = self.create_course(True)
         else:
             self.current_course = self.create_course(False)
+        self.start_round()
 
     def create_course(self, is_full_round):
         return CourseCreator.CourseCreator(is_full_round).course
@@ -68,6 +69,8 @@ class Game:
         return x
 
     def start_round(self):
+        self.current_course.play_course()
         pass
+
 
 Game()

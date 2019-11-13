@@ -14,10 +14,10 @@ class CourseCreator:
         #print(self.total_par(hole_sizes))
         self.course = Course.Course()
         for i in enumerate(hole_sizes):
-            hc = HoleCreator.HoleCreator(i[0] + 1, i[1])
+            hc = HoleCreator.HoleCreator(self.course, i[0] + 1, i[1])
             self.course.add_hole(hc.hole)
-        for hole in self.course.holes:
-            print(hole)
+        #for hole in self.course.holes:
+            #print(hole)
 
     def calculate_hole_sizes(self, is_full_round):
         hole_sizes = []
