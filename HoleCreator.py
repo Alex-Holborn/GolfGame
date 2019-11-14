@@ -8,6 +8,7 @@ class HoleCreator:
         self.hole.set_number(number)
         self.hole.set_par(par)
         self.hole.set_distance(self.create_distance(par))
+        self.hole.reset_distance_left()
 
     def get_hole(self):
         return self.hole
