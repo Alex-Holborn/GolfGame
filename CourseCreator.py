@@ -4,7 +4,7 @@ import random
 
 class CourseCreator:
 
-    def __init__(self, is_full_round):
+    def __init__(self, game, is_full_round):
         if is_full_round:
             print("Creating Full Course...")
         else:
@@ -12,7 +12,7 @@ class CourseCreator:
         hole_sizes = self.calculate_hole_sizes(is_full_round)
         #print(hole_sizes)
         #print(self.total_par(hole_sizes))
-        self.course = Course.Course()
+        self.course = Course.Course(game)
         for i in enumerate(hole_sizes):
             hc = HoleCreator.HoleCreator(self.course, i[0] + 1, i[1])
             self.course.add_hole(hc.hole)
