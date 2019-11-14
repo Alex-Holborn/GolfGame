@@ -1,6 +1,7 @@
 class Course:
 
-    def __init__(self):
+    def __init__(self, game):
+        self.game = game
         self.holes = []
         self.current_hole = 0
         self.shots_taken = 0
@@ -22,3 +23,6 @@ class Course:
     def play_course(self):
         print("Let's play golf!")
         self.play_next_hole()
+
+    def exit(self):
+        self.game.exit()
