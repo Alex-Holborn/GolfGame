@@ -30,7 +30,7 @@ class Game:
             self.print_instructions()
         elif choice == "q":
             print("Thanks for playing!")
-            exit()
+            self.exit()
 
     def play(self):
         options = ["f", "h"]
@@ -44,7 +44,7 @@ class Game:
         self.start_round()
 
     def create_course(self, is_full_round):
-        return CourseCreator.CourseCreator(is_full_round).course
+        return CourseCreator.CourseCreator(self, is_full_round).course
 
     def print_instructions(self):
         print("Add instructions Martin")
@@ -72,5 +72,8 @@ class Game:
         self.current_course.play_course()
         pass
 
+    def exit(self):
+        print("Thanks for playing!")
+        exit()
 
 Game()
